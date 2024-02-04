@@ -14,6 +14,7 @@ use AQUILA_THEME\Inc\Traits\Singleton;
         // load classes.
         Assets::get_instance();
         Menus::get_instance();
+        Meta_Boxes::get_instance();
         $this->setup_hook();
     }
 
@@ -39,7 +40,7 @@ use AQUILA_THEME\Inc\Traits\Singleton;
             'width'                => 400,
             'flex-height'          => true,
             'flex-width'           => true,
-            'unlink-homepage-logo' => true,
+            'unlink-homepage-logo' => true
         ) );
 
         /**
@@ -57,6 +58,12 @@ use AQUILA_THEME\Inc\Traits\Singleton;
          */
 
         add_theme_support( 'post-thumbnails' );
+
+        /**
+         * Register the image size
+         */
+
+        add_image_size( 'featured-thumbnail', 350, 233, true );
         /**
          * for feed links
          */

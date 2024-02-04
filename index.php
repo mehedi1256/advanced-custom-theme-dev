@@ -11,7 +11,7 @@ get_header();
 <div id="primary">
     <main id="main" class="site-main mt-5">
         <?php 
-            if ( have_posts() ) {
+            if ( have_posts() ) :
                 ?>
                     <div class="container">
 
@@ -39,18 +39,17 @@ get_header();
                                 while ( have_posts()): the_post();
                                     if(0 === $index % $no_of_columns) {
                                         ?>
-                                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class=" col col-lg-4 col-md-6 col-sm-12">
                                         <?php
                                     }
                                     
-                                    ?>
-
-                                    <h3><?php the_title(); ?></h3>
-                                    <h6><?php the_excerpt(); ?></h6>
-
-                                    <?php
-
                                     $index++;
+
+                                    /**
+                                     * loading the post content
+                                     * from template-parts/content.php template
+                                     */
+                                    get_template_part( "/template-parts/content" );
 
                                     if(0 !== $index && 0 === $index % $no_of_columns) {
                                         ?>
@@ -63,8 +62,12 @@ get_header();
                         </div>
                     </div>
                 <?php
-            }
+
+            else :
+                get_template_part( "/template-parts/content-none" );
+            endif;
         ?>
+        
     </main>
 </div>
 

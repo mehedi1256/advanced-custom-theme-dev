@@ -15,6 +15,7 @@
  }
 
  require_once AQUILA_DIR_PATH . '/inc/helpers/autoloader.php';
+ require_once AQUILA_DIR_PATH . '/inc/helpers/template-tags.php';
 
  function aquila_theme_instance() {
    \AQUILA_THEME\Inc\AQUILA_THEME::get_instance();
