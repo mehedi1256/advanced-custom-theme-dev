@@ -8,8 +8,64 @@
 get_header();
 ?>
 
-<div class="content">
-Content
+<div id="primary">
+    <main id="main" class="site-main mt-5">
+        <?php 
+            if ( have_posts() ) {
+                ?>
+                    <div class="container">
+
+                        <?php 
+                           if ( is_home() && ! is_front_page() )  {
+                            ?>
+                            <header class="mb-5">
+                                <h1 class="page-title">
+                                    <?php 
+                                        single_post_title();
+                                    ?>
+                                </h1>
+                            </header>
+                            <?php
+                           }
+                        ?>
+
+                        <div class="row">
+                            <?php 
+                                $index = 0;
+                                $no_of_columns = 1;
+                                /**
+                                 * making grid columns for post
+                                 */
+                                while ( have_posts()): the_post();
+                                    if(0 === $index % $no_of_columns) {
+                                        ?>
+                                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <?php
+                                    }
+                                    
+                                    ?>
+
+                                    <h3><?php the_title(); ?></h3>
+                                    <h6><?php the_excerpt(); ?></h6>
+
+                                    <?php
+
+                                    $index++;
+
+                                    if(0 !== $index && 0 === $index % $no_of_columns) {
+                                        ?>
+                                            </div>
+                                        <?php
+                                    }
+                                endwhile;
+                            ?>
+                        
+                        </div>
+                    </div>
+                <?php
+            }
+        ?>
+    </main>
 </div>
 
 <?php 

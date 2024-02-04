@@ -14,7 +14,7 @@
 ?>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
+  <div class="container">
     <?php 
       if ( function_exists('the_custom_logo') ) {
         the_custom_logo();
