@@ -36,8 +36,8 @@ use AQUILA_THEME\Inc\Traits\Singleton;
          */
         add_theme_support( 'custom-logo', array(
             'header-text'          => array( 'site-title', 'site-description' ),
-            'height'               => 100,
-            'width'                => 400,
+            'width'                => 50,
+            'height'               => 50,
             'flex-height'          => true,
             'flex-width'           => true,
             'unlink-homepage-logo' => true
