@@ -30,3 +30,7 @@ img.attachment-featured-large {
     width: 350px;
     height: 233px;
 }
+
+.updated:not(.published) {
+    display: none;
+}
